@@ -62,6 +62,13 @@ public class View extends JFrame {
 		getContentPane().add(passwordField);
 		
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cartela cartela = new Cartela();
+				cartela.setVisible(true);
+				dispose();
+			}
+		});
 		btnEntrar.setBounds(10, 136, 63, 23);
 		getContentPane().add(btnEntrar);
 		
