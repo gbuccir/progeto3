@@ -56,7 +56,7 @@ public class Cadastro extends JFrame {
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSenha.setBounds(10, 125, 60, 14);
+		lblSenha.setBounds(10, 125, 60, 15);
 		contentPane.add(lblSenha);
 		
 		textField = new JTextField();
