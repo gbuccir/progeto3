@@ -46,7 +46,7 @@ public class Cartela extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 490, 50);
+		panel.setBounds(0, 0, 490, 48);
 		contentPane.add(panel);
 		
 		JLabel lblNumeroSorteado = new JLabel("Numero sorteado:");
