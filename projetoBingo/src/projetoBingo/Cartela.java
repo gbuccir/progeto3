@@ -289,7 +289,7 @@ public class Cartela extends JFrame {
 		if(marcado != Color.GREEN)
 				botao.setBackground(Color.GREEN);
 		else
-			botao.setBackground(null);
+			botao.setBackground(null);	
 	}
 	
 }
