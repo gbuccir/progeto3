@@ -12,6 +12,11 @@ import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 
 public class Cadastro extends JFrame {
@@ -19,7 +24,7 @@ public class Cadastro extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
-	private JTextField textField_1;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -48,39 +53,35 @@ public class Cadastro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("e-Mail:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(10, 65, 60, 15);
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblSenha.setBounds(10, 125, 60, 15);
 		contentPane.add(lblSenha);
-		
+
 		textField = new JTextField();
 		textField.setBounds(80, 61, 317, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(80, 121, 100, 20);
 		contentPane.add(passwordField);
-		
+
 		JLabel lblConfirmao = new JLabel("Confirma\u00E7\u00E3o:");
 		lblConfirmao.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblConfirmao.setBounds(190, 124, 97, 14);
 		contentPane.add(lblConfirmao);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(297, 121, 100, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
+
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cadastraJogador(textField.getText(), passwordField.getPassword(), passwordField_1.getPassword());
 				View telaLogin = new View();
 				telaLogin.setVisible(true);
 				dispose();
@@ -88,7 +89,7 @@ public class Cadastro extends JFrame {
 		});
 		btnOk.setBounds(91, 187, 89, 23);
 		contentPane.add(btnOk);
-		
+
 		JButton btnCancela = new JButton("Cancela");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -99,6 +100,25 @@ public class Cadastro extends JFrame {
 		});
 		btnCancela.setBounds(237, 187, 89, 23);
 		contentPane.add(btnCancela);
+
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(297, 124, 100, 20);
+		contentPane.add(passwordField_1);
+	}
+
+	public void cadastraJogador(String mail, char[] senha, char[] confirma) {
+		if(Arrays.equals(confirma, senha) && mail != "" && senha.length > 0 && confirma.length>0 ){
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
+				PreparedStatement statement = conn.prepareStatement(""
+						+ "INSERT INTO jogadoresCadastrados (eMail, Senha, PrimeiraDataMes, QtdVitoriasMes)"
+						+ "VALUES ( '"+ mail +"', '"+ String.valueOf(senha) +"', '21/01/2000', '5')");
+				statement.executeUpdate();
+			} catch (Exception e) {
+				System.out.println("Problemas de conexão");
+			}
+		}
 	}
 
 }

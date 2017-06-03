@@ -35,7 +35,7 @@ public class View extends JFrame {
 			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
-				System.out.println(result.getString(1));
+				System.out.println(result.getString(2));
 			}
 		} catch (Exception e) {
 		}
