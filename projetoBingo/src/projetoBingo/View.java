@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -69,9 +71,31 @@ public class View extends JFrame {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cartela cartela = new Cartela();
-				cartela.setVisible(true);
-				dispose();
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root","root");
+					
+					String login = textField.getText();
+					String senha = String.valueOf(passwordField.getPassword());
+					PreparedStatement statement = conn.prepareStatement("select * from jogadoresCadastrados where eMail=? and Senha=?");
+					statement.setString(1, login);
+					statement.setString(2, senha);
+					ResultSet log = statement.executeQuery();
+					
+					if(log.next() == true){
+						Cartela cartela = new Cartela();
+						cartela.setVisible(true);
+						dispose();						
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "Login invalido");
+					}
+					
+
+				} catch (Exception x) {
+				}
+
+				
 			}
 		});
 		btnEntrar.setBounds(10, 136, 63, 23);
@@ -142,25 +166,21 @@ public class View extends JFrame {
 			PreparedStatement statement = conn
 					.prepareStatement("select * from jogadoresCadastrados order by QtdVitoriasMes desc");
 			ResultSet result = statement.executeQuery();
-			
+
 			int ranking = 1;
-			while (result.next() && ranking <=3) {
-				/*lblFulanoDeTal.setText(result.getString(1));
-				lblNewLabel_3.setText(result.getString(1));
-				lblNewLabel_4.setText(result.getString(1));*/
-				if(ranking == 1){
+			while (result.next() && ranking <= 3) {
+				if (ranking == 1) {
 					lblFulanoDeTal.setText(result.getString(1));
 					label.setText(result.getString(4));
-				}
-				else if(ranking ==2){
+				} else if (ranking == 2) {
 					lblNewLabel_3.setText(result.getString(1));
 					lblNewLabel_5.setText(result.getString(4));
-				}
-				else if(ranking == 3){
+				} else if (ranking == 3) {
 					lblNewLabel_4.setText(result.getString(1));
 					lblNewLabel_6.setText(result.getString(4));
 				}
-				//System.out.println(result.getString(1) + result.getString(2));	
+				// System.out.println(result.getString(1) +
+				// result.getString(2));
 				ranking++;
 			}
 
