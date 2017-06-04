@@ -1,23 +1,16 @@
 package projetoBingo;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
-import java.util.Random;
-import java.util.Timer;
 
 public class Cartela extends JFrame {
 
@@ -28,6 +21,7 @@ public class Cartela extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					Cartela frame = new Cartela();
@@ -37,7 +31,6 @@ public class Cartela extends JFrame {
 				}
 			}
 		});
-
 	}
 
 	/**
@@ -57,7 +50,7 @@ public class Cartela extends JFrame {
 
 		JLabel lblNumeroSorteado = new JLabel("Numero sorteado:");
 		panel.add(lblNumeroSorteado);
-		
+
 		JLabel lblNumsorteado = new JLabel("numSorteado");
 		panel.add(lblNumsorteado);
 
@@ -89,6 +82,7 @@ public class Cartela extends JFrame {
 		JButton button = new JButton("1");
 		panel_1.add(button);
 		button.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button);
 			}
@@ -97,6 +91,7 @@ public class Cartela extends JFrame {
 		JButton button_1 = new JButton("2");
 		panel_1.add(button_1);
 		button_1.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_1);
 			}
@@ -105,6 +100,7 @@ public class Cartela extends JFrame {
 		JButton button_2 = new JButton("3");
 		panel_1.add(button_2);
 		button_2.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_2);
 			}
@@ -113,6 +109,7 @@ public class Cartela extends JFrame {
 		JButton button_3 = new JButton("4");
 		panel_1.add(button_3);
 		button_3.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_3);
 			}
@@ -121,6 +118,7 @@ public class Cartela extends JFrame {
 		JButton button_4 = new JButton("5");
 		panel_1.add(button_4);
 		button_4.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_4);
 			}
@@ -129,6 +127,7 @@ public class Cartela extends JFrame {
 		JButton button_5 = new JButton("6");
 		panel_1.add(button_5);
 		button_5.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_5);
 			}
@@ -137,6 +136,7 @@ public class Cartela extends JFrame {
 		JButton button_6 = new JButton("7");
 		panel_1.add(button_6);
 		button_6.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_6);
 			}
@@ -145,6 +145,7 @@ public class Cartela extends JFrame {
 		JButton button_7 = new JButton("8");
 		panel_1.add(button_7);
 		button_7.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_7);
 			}
@@ -153,6 +154,7 @@ public class Cartela extends JFrame {
 		JButton button_8 = new JButton("9");
 		panel_1.add(button_8);
 		button_8.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_8);
 			}
@@ -161,6 +163,7 @@ public class Cartela extends JFrame {
 		JButton button_9 = new JButton("10");
 		panel_1.add(button_9);
 		button_9.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_9);
 			}
@@ -169,6 +172,7 @@ public class Cartela extends JFrame {
 		JButton button_10 = new JButton("11");
 		panel_1.add(button_10);
 		button_10.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_10);
 			}
@@ -177,6 +181,7 @@ public class Cartela extends JFrame {
 		JButton button_11 = new JButton("12");
 		panel_1.add(button_11);
 		button_11.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_11);
 			}
@@ -185,6 +190,7 @@ public class Cartela extends JFrame {
 		JButton btnBingo = new JButton("BINGO");
 		panel_1.add(btnBingo);
 		btnBingo.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(btnBingo);
 			}
@@ -193,6 +199,7 @@ public class Cartela extends JFrame {
 		JButton button_12 = new JButton("14");
 		panel_1.add(button_12);
 		button_12.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_12);
 			}
@@ -201,6 +208,7 @@ public class Cartela extends JFrame {
 		JButton button_13 = new JButton("15");
 		panel_1.add(button_13);
 		button_13.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_13);
 			}
@@ -209,6 +217,7 @@ public class Cartela extends JFrame {
 		JButton button_14 = new JButton("16");
 		panel_1.add(button_14);
 		button_14.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_14);
 			}
@@ -217,6 +226,7 @@ public class Cartela extends JFrame {
 		JButton button_15 = new JButton("17");
 		panel_1.add(button_15);
 		button_15.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_15);
 			}
@@ -225,6 +235,7 @@ public class Cartela extends JFrame {
 		JButton button_16 = new JButton("18");
 		panel_1.add(button_16);
 		button_16.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_16);
 			}
@@ -233,6 +244,7 @@ public class Cartela extends JFrame {
 		JButton button_17 = new JButton("19");
 		panel_1.add(button_17);
 		button_17.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_17);
 			}
@@ -241,6 +253,7 @@ public class Cartela extends JFrame {
 		JButton button_18 = new JButton("20");
 		panel_1.add(button_18);
 		button_18.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_18);
 			}
@@ -249,6 +262,7 @@ public class Cartela extends JFrame {
 		JButton button_19 = new JButton("21");
 		panel_1.add(button_19);
 		button_19.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_19);
 			}
@@ -257,6 +271,7 @@ public class Cartela extends JFrame {
 		JButton button_20 = new JButton("22");
 		panel_1.add(button_20);
 		button_20.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_20);
 			}
@@ -265,6 +280,7 @@ public class Cartela extends JFrame {
 		JButton button_21 = new JButton("23");
 		panel_1.add(button_21);
 		button_21.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_21);
 			}
@@ -273,6 +289,7 @@ public class Cartela extends JFrame {
 		JButton button_22 = new JButton("24");
 		panel_1.add(button_22);
 		button_22.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_22);
 			}
@@ -281,11 +298,12 @@ public class Cartela extends JFrame {
 		JButton button_23 = new JButton("25");
 		panel_1.add(button_23);
 		button_23.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				marcaBotao(button_23);
 			}
 		});
-
+		sorteiaNumero(lblNumsorteado);
 	}
 
 	public void marcaBotao(JButton botao) {
@@ -296,20 +314,17 @@ public class Cartela extends JFrame {
 			botao.setBackground(null);
 	}
 
-	public static void sorteiaNumero() {
+	public void sorteiaNumero(JLabel lbl) {
 		boolean bingo = false;
-		Random gerador = new Random();
-		while (bingo != true) {
-			//setTimeout
-			Timer timer = new Timer();
-			//timer.schedule(new sorteiaNumero(), 3000);
-			//timer.wait(2000);
-			//lblNumsorteado.setText(String.valueOf(gerador.nextInt(76)));
-		}
-	}
-	
-	public void confereCartela(){
+
+		new SorteioNum(lbl);
 		
+		//t1.stop();
+
 	}
+
+	/*public void confereCartela() {
+
+	}*/
 
 }
