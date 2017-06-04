@@ -28,18 +28,6 @@ public class View extends JFrame {
 	 */
 	public static void main(String[] args) throws Exception {
 
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
-			PreparedStatement statement = conn.prepareStatement("select * from jogadoresCadastrados");
-			ResultSet result = statement.executeQuery();
-
-			while (result.next()) {
-				System.out.println(result.getString(2));
-			}
-		} catch (Exception e) {
-		}
-
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -147,5 +135,36 @@ public class View extends JFrame {
 		JLabel lblNewLabel_6 = new JLabel("New label");
 		lblNewLabel_6.setBounds(165, 330, 46, 14);
 		getContentPane().add(lblNewLabel_6);
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
+			PreparedStatement statement = conn
+					.prepareStatement("select * from jogadoresCadastrados order by QtdVitoriasMes desc");
+			ResultSet result = statement.executeQuery();
+			
+			int ranking = 1;
+			while (result.next() && ranking <=3) {
+				/*lblFulanoDeTal.setText(result.getString(1));
+				lblNewLabel_3.setText(result.getString(1));
+				lblNewLabel_4.setText(result.getString(1));*/
+				if(ranking == 1){
+					lblFulanoDeTal.setText(result.getString(1));
+					label.setText(result.getString(4));
+				}
+				else if(ranking ==2){
+					lblNewLabel_3.setText(result.getString(1));
+					lblNewLabel_5.setText(result.getString(4));
+				}
+				else if(ranking == 3){
+					lblNewLabel_4.setText(result.getString(1));
+					lblNewLabel_6.setText(result.getString(4));
+				}
+				//System.out.println(result.getString(1) + result.getString(2));	
+				ranking++;
+			}
+
+		} catch (Exception e) {
+		}
 	}
 }
