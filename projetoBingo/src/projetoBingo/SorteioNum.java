@@ -16,21 +16,23 @@ public class SorteioNum implements Runnable {
 	public SorteioNum(JLabel x) {
 		// super();
 		this.x = x;
-		Thread t1 = new Thread(this);
-		t1.start();
 		
-		//this.run();
+		this.run();
+		// this.run();
 	}
 
 	@Override
 	public void run() {
-		while (true) {
+		int i = 1;
+		while (i <= 3) {
 			try {
 				Thread.sleep(5000);
+				Random gerador = new Random();
+				x.setText(String.valueOf(gerador.nextInt(76)));
 			} catch (Exception t) {
 			}
-			Random gerador = new Random();
-			x.setText(String.valueOf(gerador.nextInt(76)));
+
+			i++;
 		}
 	}
 }

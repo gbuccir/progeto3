@@ -316,9 +316,16 @@ public class Cartela extends JFrame {
 
 	public void sorteiaNumero(JLabel lbl) {
 		boolean bingo = false;
-
-		new SorteioNum(lbl);
-		
+//
+		SorteioNum sort = new SorteioNum(lbl);
+		Thread t1 = new Thread(sort);
+		t1.start();
+		/*int j = 1;
+		while(j<3){
+			System.out.println(j);
+			j++;
+		}*/
+System.out.println("teste thread");		
 		//t1.stop();
 
 	}
