@@ -98,7 +98,7 @@ public class View extends JFrame {
 				
 			}
 		});
-		btnEntrar.setBounds(10, 136, 63, 23);
+		btnEntrar.setBounds(10, 136, 90, 23);
 		getContentPane().add(btnEntrar);
 
 		JButton btnCancela = new JButton("Cancela");
@@ -107,7 +107,7 @@ public class View extends JFrame {
 				dispose();
 			}
 		});
-		btnCancela.setBounds(79, 136, 98, 23);
+		btnCancela.setBounds(101, 136, 90, 23);
 		getContentPane().add(btnCancela);
 
 		JButton btnCadastrarse = new JButton("Cadastrar-se");
@@ -118,7 +118,7 @@ public class View extends JFrame {
 				dispose();
 			}
 		});
-		btnCadastrarse.setBounds(187, 136, 119, 23);
+		btnCadastrarse.setBounds(192, 136, 119, 23);
 		getContentPane().add(btnCadastrarse);
 
 		JLabel lblNewLabel_1 = new JLabel("Records do M\u00EAs");
