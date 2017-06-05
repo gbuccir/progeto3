@@ -20,6 +20,8 @@ public class SorteioNum implements Runnable {
 		this.run();
 		// this.run();
 	}
+	
+	Fila num = new Fila();
 
 	@Override
 	public void run() {
@@ -28,7 +30,10 @@ public class SorteioNum implements Runnable {
 			try {
 				Thread.sleep(5000);
 				Random gerador = new Random();
-				x.setText(String.valueOf(gerador.nextInt(76)));
+				int sorteado = gerador.nextInt(76);
+				//x.setText(String.valueOf(gerador.nextInt(76)));
+				x.setText(String.valueOf(sorteado));
+				num.insere(sorteado);
 			} catch (Exception t) {
 			}
 
