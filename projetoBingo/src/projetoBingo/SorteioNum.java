@@ -19,7 +19,6 @@ public class SorteioNum implements Runnable {
 		this.f = f;
 	}
 
-	//private	Fila num = new Fila();
 
 	@Override
 	public void run() {
