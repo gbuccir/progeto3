@@ -303,7 +303,9 @@ public class Cartela extends JFrame {
 				marcaBotao(button_23);
 			}
 		});
-		sorteiaNumero(lblNumsorteado);
+
+		Fila ns = new Fila();
+		sorteiaNumero(lblNumsorteado, ns);
 	}
 
 	public void marcaBotao(JButton botao) {
@@ -314,21 +316,25 @@ public class Cartela extends JFrame {
 			botao.setBackground(null);
 	}
 
-	public void sorteiaNumero(JLabel lbl) {
+	public synchronized void sorteiaNumero(JLabel lbl, Fila numSaiu) {
 		boolean bingo = false;
-		//
-		SorteioNum sort = new SorteioNum(lbl);
+
+		SorteioNum sort = new SorteioNum(lbl, numSaiu);
 		Thread t1 = new Thread(sort);
 		t1.start();
-		/*
-		 * int j = 1; while(j<3){ System.out.println(j); j++; }
-		 */
+
 		System.out.println("teste thread");
 		// t1.stop();
-		while(sort.num.semFila() == false){
-			System.out.println(sort.num.remover());
-		}
+		teste(numSaiu);
 
+	}
+
+	public void teste(Fila n) {
+		synchronized (this) {
+			while (n.semFila() == false) {
+				System.out.println(n.remover() + "fora da thread");
+			}
+		}
 	}
 
 	/*
