@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 
@@ -37,6 +38,9 @@ public class Cartela extends JFrame {
 	 * Create the frame.
 	 */
 	public Cartela() {
+		
+		geraCartela();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 510, 470);
 		contentPane = new JPanel();
@@ -333,6 +337,23 @@ public class Cartela extends JFrame {
 		synchronized (this) {
 			while (n.semFila() == false) {
 				System.out.println(n.remover() + "fora da thread");
+			}
+		}
+	}
+
+	public void geraCartela() {
+		Fila nc = new Fila();
+		for (int i = 0; i < 24; i++) {
+			Random geraCart = new Random();
+			int cartNum = geraCart.nextInt(76);
+			if (nc.semFila()) {
+				nc.insere(cartNum);
+			} else {
+				for (int j = 0; j <= nc.tamanho(); j++) {
+					if (cartNum != Integer.parseInt(nc.proximo().toString())) {
+						nc.insere(cartNum);
+					}
+				}
 			}
 		}
 	}
