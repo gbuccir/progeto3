@@ -4,7 +4,15 @@ import java.util.ArrayList;
 
 public class Fila {
 
-	ArrayList<Object> numeros = new ArrayList<Object>();
+	private ArrayList<Object> numeros = new ArrayList<Object>();
+
+	public ArrayList<Object> getNumeros() {
+		return numeros;
+	}
+
+	public void setNumeros(ArrayList<Object> numeros) {
+		this.numeros = numeros;
+	}
 
 	public void insere(Object numeros) {
 		this.numeros.add(numeros);

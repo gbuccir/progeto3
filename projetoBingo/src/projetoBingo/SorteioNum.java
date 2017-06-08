@@ -12,18 +12,20 @@ public class SorteioNum implements Runnable {
 	private static final long serialVersionUID = 1L;
 	private JLabel x;
 	private Fila f;
+	private Boolean bingo;
 
-	public SorteioNum(JLabel x, Fila f) {
+	public SorteioNum(JLabel x, Fila f, Boolean bingo) {
 		// super();
 		this.x = x;
 		this.f = f;
+		this.bingo = bingo;
 	}
 
 
 	@Override
 	public void run() {
 		int i = 1;
-		while (i <= 3) {
+		while (true) {
 			try {
 				Thread.sleep(3000);
 				Random gerador = new Random();
