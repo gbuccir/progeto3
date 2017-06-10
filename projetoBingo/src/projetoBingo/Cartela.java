@@ -387,7 +387,7 @@ public class Cartela extends JFrame {
 
 			for (ArrayList<Object> numeros : cartela.getLinhas().values()) {
 				for (Object numero : numeros) {
-					if (!ns.getNumeros().contains(numero)) {
+					if (!ns.getNumeros().contains(numero) && (Integer)numero != -1) {
 						System.out.println("Nao saiu o numero " + numero);
 					}
 				}
@@ -403,7 +403,6 @@ public class Cartela extends JFrame {
 		tSorteio = new Thread(sort);
 		tSorteio.start();
 
-		System.out.println("teste thread");
 		// t1.stop();
 		teste(numSaiu);
 

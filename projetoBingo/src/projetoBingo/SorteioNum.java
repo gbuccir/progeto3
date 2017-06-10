@@ -21,17 +21,20 @@ public class SorteioNum implements Runnable {
 		this.bingo = bingo;
 	}
 
-
 	@Override
 	public void run() {
 		int i = 1;
 		while (true) {
 			try {
-				Thread.sleep(3000);
 				Random gerador = new Random();
 				int sorteado = gerador.nextInt(76);
-				x.setText(String.valueOf(sorteado));
-				f.insere(sorteado);
+				//while (!f.getNumeros().contains(sorteado) && sorteado != 0) {
+				if(sorteado != 0 && !f.getNumeros().contains(sorteado)){
+					Thread.sleep(3000);
+					//sorteado = gerador.nextInt(76);
+					x.setText(String.valueOf(sorteado));
+					f.insere(sorteado);
+				}
 			} catch (Exception t) {
 			}
 			i++;
