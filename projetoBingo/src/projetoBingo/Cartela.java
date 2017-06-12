@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -384,17 +385,30 @@ public class Cartela extends JFrame {
 			tSorteio.stop();
 
 			// valida cartao
-
+			boolean venceu = true;
 			for (ArrayList<Object> numeros : cartela.getLinhas().values()) {
 				for (Object numero : numeros) {
-					if (!ns.getNumeros().contains(numero) && (Integer)numero != -1) {
+					if (!ns.getNumeros().contains(numero) && (Integer) numero != -1) {
 						System.out.println("Nao saiu o numero " + numero);
+						venceu = false;
 					}
 				}
 			}
 
+			if (venceu == true) {
+				JOptionPane.showMessageDialog(null, "Você venceu!!!");
+				View telaLogin = new View();
+				telaLogin.setVisible(true);
+				dispose();
+			} else {
+				JOptionPane.showMessageDialog(null, "Você perdeu :(");
+				View telaLogin = new View();
+				telaLogin.setVisible(true);
+				dispose();
+			}
+
 		} else {
-			criaThread(lblNumsorteado, ns);
+			// criaThread(lblNumsorteado, ns);
 		}
 	}
 

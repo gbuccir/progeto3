@@ -29,7 +29,7 @@ public class Sorteados implements Runnable {
 				bingo = false;
 
 			}
-
+/*
 			if (bingo == false) {
 				JOptionPane.showMessageDialog(null, "Login invalido");
 				View telaLogin = new View();
@@ -38,7 +38,7 @@ public class Sorteados implements Runnable {
 			}
 			else{
 				
-			}
+			}*/
 
 			/*
 			 * if (i > 0){ ganhou = false; System.out.println("ganhou"); }
