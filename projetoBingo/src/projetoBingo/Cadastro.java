@@ -16,7 +16,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 
 public class Cadastro extends JFrame {
@@ -109,11 +111,14 @@ public class Cadastro extends JFrame {
 	public void cadastraJogador(String mail, char[] senha, char[] confirma) {
 		if(Arrays.equals(confirma, senha) && mail != "" && senha.length > 0 && confirma.length>0 ){
 			try {
+				SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
+				Date da = new Date();
+				d.format(da);
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
 				PreparedStatement statement = conn.prepareStatement(""
 						+ "INSERT INTO jogadoresCadastrados (eMail, Senha, PrimeiraDataMes, QtdVitoriasMes)"
-						+ "VALUES ( '"+ mail +"', '"+ String.valueOf(senha) +"', '21/01/2000', '5')");
+						+ "VALUES ( '"+ mail +"', '"+ String.valueOf(senha) +"', '" + d.format(da) + "', '0')");
 				statement.executeUpdate();
 			} catch (Exception e) {
 				System.out.println("Problemas de conexão");

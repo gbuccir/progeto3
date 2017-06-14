@@ -85,6 +85,7 @@ public class View extends JFrame {
 					if(log.next() == true){
 						Cartela cartela = new Cartela();
 						cartela.setVisible(true);
+						Jogador jog = new Jogador(log);
 						dispose();						
 					}
 					else{

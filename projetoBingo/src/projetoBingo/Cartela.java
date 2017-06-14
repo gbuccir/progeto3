@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -397,6 +400,19 @@ public class Cartela extends JFrame {
 
 			if (venceu == true) {
 				JOptionPane.showMessageDialog(null, "Você venceu!!!");
+				try {
+					Jogador joga = new Jogador();
+					Integer vit = Integer.parseInt(joga.getVitorias());
+					vit++;
+					joga.setVitorias(vit.toString());
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
+					PreparedStatement statement = conn.prepareStatement(""
+							+ "UPDATE jogadoresCadastrados SET QtdVitoriasMes = '" + joga.getVitorias() + "' WHERE eMail = '"+  joga.getEmail()+"'");
+					statement.executeUpdate();
+				} catch (Exception e) {
+					System.out.println("Problemas de conexão");
+				}
 				View telaLogin = new View();
 				telaLogin.setVisible(true);
 				dispose();
