@@ -408,7 +408,7 @@ public class Cartela extends JFrame {
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
 					PreparedStatement statement = conn.prepareStatement(""
-							+ "UPDATE jogadoresCadastrados SET QtdVitoriasMes = '" + joga.getVitorias() + "' WHERE eMail = '"+  joga.getEmail()+"'");
+							+ "UPDATE jogadoresCadastrados SET QtdVitoriasMes = '" + joga.getVitorias() + "' WHERE email = '"+  joga.getEmail()+"'");
 					statement.executeUpdate();
 				} catch (Exception e) {
 					System.out.println("Problemas de conexão");

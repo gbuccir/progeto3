@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Font;
@@ -109,7 +110,7 @@ public class Cadastro extends JFrame {
 	}
 
 	public void cadastraJogador(String mail, char[] senha, char[] confirma) {
-		if(Arrays.equals(confirma, senha) && mail != "" && senha.length > 0 && confirma.length>0 ){
+		if(Arrays.equals(confirma, senha) && mail != "" && senha.length > 0 && confirma.length > 0 ){
 			try {
 				SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
 				Date da = new Date();
@@ -121,8 +122,11 @@ public class Cadastro extends JFrame {
 						+ "VALUES ( '"+ mail +"', '"+ String.valueOf(senha) +"', '" + d.format(da) + "', '0')");
 				statement.executeUpdate();
 			} catch (Exception e) {
-				System.out.println("Problemas de conexão");
+				JOptionPane.showMessageDialog(null, "Problemas de conexão");
 			}
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Senha invalida");
 		}
 	}
 

@@ -95,8 +95,6 @@ public class View extends JFrame {
 
 				} catch (Exception x) {
 				}
-
-				
 			}
 		});
 		btnEntrar.setBounds(10, 136, 90, 23);
@@ -164,8 +162,7 @@ public class View extends JFrame {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseBingo", "root", "root");
-			PreparedStatement statement = conn
-					.prepareStatement("select * from jogadoresCadastrados order by QtdVitoriasMes desc");
+			PreparedStatement statement = conn.prepareStatement("select * from jogadoresCadastrados order by QtdVitoriasMes desc");
 			ResultSet result = statement.executeQuery();
 
 			int ranking = 1;
